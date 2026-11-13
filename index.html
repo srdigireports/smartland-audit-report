@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Smartland Early Learning | Website, Tracking & Google Ads Audit</title>
+<meta name="color-scheme" content="light dark">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Arvo:wght@400;700&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+  --bg:#FEFDF1;--surface:#FFFFFF;--surface2:#F6F5E2;--ink:#242122;--ink2:#4A4547;--line:#E2DFC6;
+  --olive:#737145;--olive-d:#4F4D2E;--lime:#BEC831;--lime-d:#6D7410;--terra:#B45437;--terra-t:#9A3F22;--sky:#6EC1E4;--green:#23A455;
+  --hero1:#22211A;--hero2:#38371F;--on-hero:#FEFDF1;--shadow:0 10px 30px rgba(36,33,34,.08);
+  --hi-bg:#F8D9CF;--hi-t:#7A2E16;--md-bg:#F6EDB8;--md-t:#5A4E00;--lo-bg:#DCEED3;--lo-t:#1E5A2B;
+  --head:'Arvo',Georgia,serif;--body:'Poppins',system-ui,-apple-system,'Segoe UI',Arial,sans-serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#171611;--surface:#23221A;--surface2:#2B2A1F;--ink:#F4F2DC;--ink2:#CFCBB2;--line:#3B3A28;
+  --olive-d:#D8DB8C;--lime-d:#D7E04B;--terra-t:#F0977A;--shadow:0 10px 30px rgba(0,0,0,.35);
+  --hi-bg:#4A2418;--hi-t:#FFC9B5;--md-bg:#4A4210;--md-t:#F5E88A;--lo-bg:#1F3E26;--lo-t:#A9E5B6;}}
+:root[data-theme="dark"]{
+  --bg:#171611;--surface:#23221A;--surface2:#2B2A1F;--ink:#F4F2DC;--ink2:#CFCBB2;--line:#3B3A28;
+  --olive-d:#D8DB8C;--lime-d:#D7E04B;--terra-t:#F0977A;--shadow:0 10px 30px rgba(0,0,0,.35);
+  --hi-bg:#4A2418;--hi-t:#FFC9B5;--md-bg:#4A4210;--md-t:#F5E88A;--lo-bg:#1F3E26;--lo-t:#A9E5B6;}
+html{scroll-behavior:smooth;scroll-padding-top:calc(72px + env(safe-area-inset-top,0px));-webkit-text-size-adjust:100%}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 16px/1.65 var(--body);overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--hero1);z-index:60}
+.wrap{max-width:1120px;margin:0 auto;padding:0 22px}
+h1,h2,h3,h4{font-family:var(--head);line-height:1.2;margin:0}
+strong{font-weight:600}
+a{color:inherit}
+
+/* progress + nav */
+#prog{position:fixed;top:env(safe-area-inset-top,0px);left:0;height:3px;width:0;background:linear-gradient(90deg,var(--lime),var(--sky));z-index:70}
+nav.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:rgba(34,33,26,.94);backdrop-filter:blur(10px);border-bottom:1px solid rgba(190,200,49,.25)}
+nav.top .in{max-width:1120px;margin:0 auto;display:flex;gap:4px;overflow-x:auto;padding:10px 16px;scrollbar-width:none;align-items:center}
+nav.top .in::-webkit-scrollbar{display:none}
+nav.top a{flex:none;color:#E9E7CF;text-decoration:none;font-size:13px;font-weight:500;padding:7px 12px;border-radius:999px;transition:.2s}
+nav.top a:hover{background:rgba(190,200,49,.16);color:#fff}
+nav.top a.on{background:var(--lime);color:#1d1c12}
+#theme{flex:none;margin-left:auto;background:transparent;color:#E9E7CF;border:1px solid rgba(233,231,207,.35);border-radius:999px;font:500 12px var(--body);padding:6px 12px;cursor:pointer}
+
+/* hero */
+.hero{background:radial-gradient(1200px 600px at 80% 20%,#43421f 0%,transparent 60%),linear-gradient(160deg,var(--hero1),var(--hero2));color:var(--on-hero);position:relative;overflow:hidden;padding:72px 0 64px}
+.hero .wrap{display:grid;grid-template-columns:1.15fr .85fr;gap:36px;align-items:center}
+.eyebrow{display:inline-block;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--lime);border:1px solid rgba(190,200,49,.5);border-radius:999px;padding:5px 14px;margin-bottom:18px}
+.hero h1{font-size:clamp(34px,5.4vw,60px);font-weight:700;letter-spacing:-.01em}
+.hero h1 span{color:var(--lime)}
+.hero p.sub{font-size:18px;color:#E4E2C8;max-width:560px;margin:18px 0 26px}
+.meta{display:flex;flex-wrap:wrap;gap:10px 22px;font-size:13px;color:#D7D5BA}
+.meta b{color:var(--lime);font-weight:500;margin-right:6px}
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:34px}
+.kpi{background:rgba(254,253,241,.07);border:1px solid rgba(190,200,49,.28);border-radius:16px;padding:16px 14px}
+.kpi em{font:700 clamp(26px,3.4vw,36px)/1 var(--head);font-style:normal;color:var(--lime);display:block}
+.kpi span{font-size:12px;color:#D7D5BA;line-height:1.4;display:block;margin-top:8px}
+.radar{width:100%;max-width:440px;justify-self:center}
+.radar svg{width:100%;height:auto;display:block}
+.radar .rg{fill:none;stroke:rgba(190,200,49,.35);stroke-width:1}
+.radar .ax{stroke:rgba(190,200,49,.18)}
+.radar .sw{transform-origin:200px 200px;animation:sweep 6s linear infinite}
+.radar .dot{fill:var(--lime);animation:blip 3s ease-in-out infinite}
+.radar .halo{fill:none;stroke:var(--lime);transform-box:fill-box;transform-origin:center;animation:halo 3s ease-out infinite}
+.radar text{fill:#E9E7CF;font:500 10px var(--body)}
+@keyframes sweep{to{transform:rotate(360deg)}}
+@keyframes blip{0%,100%{opacity:.55}50%{opacity:1}}
+@keyframes halo{0%{transform:scale(1);opacity:.8}100%{transform:scale(3.2);opacity:0}}
+
+/* sections */
+.sec{padding:76px 0 8px}
+.shead{display:flex;gap:18px;align-items:flex-start;margin-bottom:28px}
+.shead .num{font:700 44px/1 var(--head);color:var(--lime-d);opacity:.9;min-width:62px}
+.shead h2{font-size:clamp(26px,3.6vw,38px)}
+.shead::after{content:"";}
+.kick{color:var(--ink2);margin:6px 0 0}
+.sec p{margin:0 0 14px}
+.lead{font-size:18px;color:var(--ink);max-width:880px}
+.sub{font-size:20px;margin:34px 0 14px;color:var(--olive-d)}
+.note{font-size:14px;color:var(--ink2)}
+.callout{background:var(--surface);border:1px solid var(--line);border-left:5px solid var(--lime);border-radius:12px;padding:16px 20px;margin:20px 0;box-shadow:var(--shadow)}
+
+/* reveal */
+.js .rv{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}
+.js .rv.in{opacity:1;transform:none}
+
+/* chips */
+.chip{display:inline-block;font:600 12px var(--body);padding:3px 12px;border-radius:999px;white-space:nowrap}
+.chip.hi{background:var(--hi-bg);color:var(--hi-t)}.chip.md{background:var(--md-bg);color:var(--md-t)}.chip.lo{background:var(--lo-bg);color:var(--lo-t)}
+
+/* findings */
+.grid2{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.find{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:18px 20px;display:flex;gap:14px;box-shadow:var(--shadow);transition:transform .25s}
+.find:hover{transform:translateY(-3px)}
+.find p{margin:0;font-size:15px}
+.fn{font:700 18px var(--head);color:var(--terra-t);flex:none}
+.prio{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.pri{display:flex;align-items:center;gap:14px;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px 16px}
+.pn{flex:none;width:30px;height:30px;border-radius:50%;background:var(--olive-d);color:var(--bg);display:grid;place-items:center;font:700 14px var(--head)}
+.pt{flex:1;font-size:15px}
+
+/* tables */
+.tw{overflow-x:auto;margin:14px 0 22px;border:1px solid var(--line);border-radius:14px;background:var(--surface);box-shadow:var(--shadow)}
+table{border-collapse:collapse;width:100%;font-size:14px;min-width:560px}
+th{background:var(--hero1);color:#F4F2DC;text-align:left;font:600 13px var(--body);padding:12px 14px;position:sticky;top:0}
+td{padding:12px 14px;border-top:1px solid var(--line);vertical-align:top}
+tbody tr:nth-child(even) td{background:var(--surface2)}
+td.n{font-variant-numeric:tabular-nums;white-space:nowrap}
+.st{font:600 12px var(--body);padding:3px 10px;border-radius:999px;white-space:nowrap}
+.st.ok{background:var(--lo-bg);color:var(--lo-t)}.st.wait{background:var(--md-bg);color:var(--md-t)}
+
+/* lists */
+ul.good{list-style:none;padding:0;margin:0 0 18px;display:grid;gap:10px}
+ul.good li{position:relative;padding:12px 16px 12px 46px;background:var(--surface);border:1px solid var(--line);border-radius:12px}
+ul.good li::before{content:"";position:absolute;left:16px;top:17px;width:16px;height:16px;border-radius:50%;background:var(--lime);box-shadow:0 0 0 4px rgba(190,200,49,.25)}
+ol.steps{counter-reset:s;list-style:none;padding:0;display:grid;gap:10px}
+ol.steps li{counter-increment:s;position:relative;padding:12px 16px 12px 56px;background:var(--surface);border:1px solid var(--line);border-radius:12px}
+ol.steps li::before{content:counter(s);position:absolute;left:14px;top:10px;width:30px;height:30px;border-radius:50%;background:var(--terra);color:#fff;display:grid;place-items:center;font:700 14px var(--head)}
+
+/* centres */
+.cgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:16px;margin:22px 0}
+.ccard{position:relative;background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:20px 18px 18px;overflow:hidden;box-shadow:var(--shadow)}
+.ccard.ok{border-top:4px solid var(--green)}.ccard.tbc{border-top:4px solid var(--lime)}.ccard.warn{border-top:4px solid var(--terra)}
+.ccard h3{font-size:18px;margin:6px 0 6px;max-width:80%}
+.reg{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--olive-d);font-weight:600}
+.addr{font-size:14px;color:var(--ink2);margin:0 0 10px!important}
+.pg,.ph{font-size:12.5px;margin:0 0 6px!important;word-break:break-word}
+.pg span,.ph span{display:block;font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--olive-d);font-weight:600}
+.ring{position:absolute;right:14px;top:14px;width:46px;height:46px}
+.ring i{position:absolute;inset:0;border:2px solid var(--lime);border-radius:50%;opacity:.8;animation:pulse 3s ease-out infinite}
+.ring i+i{animation-delay:1.5s}
+.ring b{position:absolute;inset:19px;background:var(--terra);border-radius:50%}
+@keyframes pulse{0%{transform:scale(.3);opacity:.9}100%{transform:scale(1.2);opacity:0}}
+
+/* issues */
+.igrid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.iss{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:18px 20px;box-shadow:var(--shadow);border-left:6px solid var(--lime)}
+.iss.hi{border-left-color:var(--terra)}.iss.md{border-left-color:#D9B800}.iss.lo{border-left-color:var(--green)}
+.ih{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
+.iss h4{font:500 15px/1.5 var(--body);margin-bottom:10px}
+.iss p{font-size:14px;margin:0 0 8px!important;color:var(--ink2)}
+.iss p span{display:block;font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;font-weight:600;color:var(--olive-d)}
+.iss p.fx{color:var(--ink)}
+
+/* flow */
+.flow{margin:26px 0;background:var(--hero1);border-radius:20px;padding:18px;box-shadow:var(--shadow)}
+.flow svg{width:100%;height:auto;display:block}
+.flow rect{fill:rgba(254,253,241,.07);stroke:rgba(190,200,49,.5)}
+.flow .fnc rect{fill:rgba(190,200,49,.14);stroke:var(--lime);stroke-width:2}
+.flow text{fill:#F4F2DC;font:500 14px var(--body);text-anchor:middle}
+.flow text.big{font:700 18px var(--head);fill:var(--lime)}.flow text.sm{font-size:12.5px;fill:#D7D5BA}
+.flow .pipes path{stroke-dasharray:6 8;animation:dash 1.4s linear infinite}
+@keyframes dash{to{stroke-dashoffset:-28}}
+.flow figcaption{color:#D7D5BA;font-size:13px;text-align:center;margin-top:8px}
+
+.formula{background:var(--surface);border:1px dashed var(--olive);border-radius:16px;padding:18px 20px;margin:20px 0}
+.fl{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--terra-t);font-weight:600}
+.eq{display:flex;flex-wrap:wrap;align-items:center;gap:8px 14px;margin:10px 0}
+.eq span{font:700 26px var(--head);color:var(--olive-d)}.eq span.res{color:var(--terra-t)}
+.eq i{font-style:normal;font-size:12px;color:var(--ink2);max-width:110px;line-height:1.3}.eq b{font:700 22px var(--head);color:var(--ink2)}
+.formula p{font-size:13px;color:var(--ink2);margin:0!important}
+
+/* gtm */
+.ggrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px;margin-top:24px}
+.gcard{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:20px;position:relative;overflow:hidden;box-shadow:var(--shadow)}
+.gcard::after{content:"";position:absolute;left:0;bottom:0;height:3px;width:100%;background:linear-gradient(90deg,var(--lime),var(--sky));transform:scaleX(0);transform-origin:left;transition:transform .5s}
+.gcard:hover::after{transform:scaleX(1)}
+.gi{font:700 13px var(--head);color:var(--bg);background:var(--olive-d);border-radius:8px;padding:2px 9px}
+.gcard h4{font-size:17px;margin:12px 0 8px}.gcard p{font-size:14px;margin:0!important;color:var(--ink2)}
+
+/* ads review */
+.aucgrid{display:grid;grid-template-columns:260px 1fr;gap:26px;align-items:center;margin-bottom:22px}
+.gauge{position:relative;width:240px;height:240px;margin:auto}
+.gauge svg{width:100%;height:100%;transform:rotate(-90deg)}
+.gt{fill:none;stroke:var(--line);stroke-width:10}
+.gv{fill:none;stroke:var(--terra);stroke-width:10;stroke-linecap:round;stroke-dasharray:314px;stroke-dashoffset:calc(314px * (1 - var(--p)/100))}
+.js .gv{stroke-dashoffset:314px;transition:stroke-dashoffset 1.6s cubic-bezier(.2,.8,.2,1)}
+.js .gauge.in .gv{stroke-dashoffset:calc(314px * (1 - var(--p)/100))}
+.gc{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:0 40px}
+.gnum em{font:700 40px var(--head);font-style:normal;color:var(--terra-t)}.gnum small{font:700 20px var(--head);color:var(--terra-t)}
+.gl{font-size:12px;color:var(--ink2);line-height:1.3}
+.bgrp{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:14px 16px;margin-bottom:12px}
+.bgrp h4{font:600 13px var(--body);margin-bottom:8px;color:var(--olive-d)}
+.brow{display:grid;grid-template-columns:78px 1fr 64px;align-items:center;gap:10px;font-size:13px;margin:5px 0}
+.brow em b{font-weight:600}.brow em{font-style:normal;white-space:nowrap;font-variant-numeric:tabular-nums;text-align:right;font-weight:600}
+.bt{height:14px;background:var(--surface2);border-radius:99px;overflow:hidden;border:1px solid var(--line)}
+.bt i{display:block;height:100%;width:var(--w);border-radius:99px}
+.js .bt i{width:0;transition:width 1.3s cubic-bezier(.2,.8,.2,1)}
+.js .bgrp.in .bt i{width:var(--w)}
+.bt i.me{background:linear-gradient(90deg,var(--lime),#9aa31a)}.bt i.gu{background:var(--terra)}.bt i.go{background:var(--sky)}
+
+/* copy */
+.copybox{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:6px 20px 18px;margin:18px 0;box-shadow:var(--shadow)}
+.tabs{display:flex;flex-wrap:wrap;gap:8px;margin:6px 0 14px}
+.tab{font:500 13px var(--body);padding:8px 14px;border-radius:999px;border:1px solid var(--line);background:var(--surface2);color:var(--ink);cursor:pointer}
+.tab.on{background:var(--olive-d);color:var(--bg);border-color:var(--olive-d)}
+.pane{display:none}.pane.on{display:block}
+.hl{display:grid;grid-template-columns:minmax(200px,1.4fr) 110px 56px 1.6fr;gap:12px;align-items:center;width:100%;text-align:left;font:400 14px var(--body);color:var(--ink);background:transparent;border:0;border-top:1px solid var(--line);padding:11px 4px;cursor:pointer;transition:background .2s}
+.hl:hover{background:var(--surface2)}
+.hl.copied{background:var(--lo-bg)}
+.ht{font-weight:500}.hu{color:var(--ink2);font-size:13px}.cc{font-variant-numeric:tabular-nums;font-size:12px;color:var(--ink2);text-align:right}
+.meter{height:8px;background:var(--surface2);border:1px solid var(--line);border-radius:99px;overflow:hidden}
+.meter i{display:block;height:100%;width:var(--w);background:linear-gradient(90deg,var(--lime),var(--sky));border-radius:99px}
+.js .meter i{width:0;transition:width 1s .2s}
+.js .copybox.in .meter i{width:var(--w)}
+.hl.d{grid-template-columns:minmax(260px,2fr) 90px 56px 1.2fr}
+.negs{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0 14px}
+.neg{font-size:13px;padding:4px 12px;border-radius:999px;background:var(--hi-bg);color:var(--hi-t)}
+#toast{position:fixed;left:50%;bottom:calc(24px + env(safe-area-inset-bottom,0px));transform:translate(-50%,40px);background:var(--hero1);color:#F4F2DC;padding:10px 18px;border-radius:999px;font-size:13px;opacity:0;transition:.3s;z-index:80;border:1px solid var(--lime)}
+#toast.show{opacity:1;transform:translate(-50%,0)}
+
+/* campaigns */
+.campgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:16px;margin:22px 0}
+.camp{position:relative;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:18px 90px 18px 18px;box-shadow:var(--shadow);overflow:hidden}
+.cn{font:700 12px var(--head);color:var(--bg);background:var(--terra);padding:2px 9px;border-radius:8px}
+.camp h4{font:600 15px var(--body);margin:10px 0 6px}.camp p{font-size:13.5px;color:var(--ink2);margin:0!important}
+.r5{position:absolute;right:14px;top:50%;width:64px;height:64px;margin-top:-32px;display:grid;place-items:center}
+.r5 i{position:absolute;inset:0;border:2px dashed var(--olive);border-radius:50%;animation:spin 14s linear infinite}
+.r5 b{font:700 12px var(--head);color:var(--olive-d)}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* landing wireframe */
+.lpstack{display:grid;gap:10px;max-width:820px;margin:18px 0}
+.lpb{display:flex;gap:16px;align-items:center;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px 18px;position:relative;overflow:hidden}
+.lpb::before{content:"";position:absolute;left:0;top:0;bottom:0;width:6px;background:linear-gradient(var(--lime),var(--sky))}
+.lpb:first-child{background:var(--hero1);color:#F4F2DC}.lpb:first-child h4{color:var(--lime)}
+.lpb span{flex:none;font:700 14px var(--head);width:32px;height:32px;border-radius:50%;background:var(--lime);color:#1d1c12;display:grid;place-items:center}
+.lpb h4{font:600 15px var(--body);margin-bottom:2px}.lpb p{margin:0!important;font-size:13.5px;opacity:.9}
+
+/* timeline */
+.tline{position:relative;margin:10px 0 18px;padding-left:34px}
+.tline::before{content:"";position:absolute;left:11px;top:6px;bottom:6px;width:3px;background:linear-gradient(var(--lime),var(--sky));border-radius:3px}
+.tli{position:relative;margin-bottom:20px;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:14px 18px}
+.dot{position:absolute;left:-31px;top:18px;width:18px;height:18px;border-radius:50%;background:var(--bg);border:4px solid var(--terra)}
+.tli small{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--olive-d);font-weight:600}
+.tli h4{font-size:18px;margin:2px 0 4px}.tli p{margin:0!important;font-size:14px;color:var(--ink2)}
+
+footer{margin-top:80px;background:var(--hero1);color:#D7D5BA;padding:36px 0 calc(36px + env(safe-area-inset-bottom,0px));text-align:center;font-size:13px}
+footer b{color:var(--lime);font-family:var(--head)}
+
+@media (max-width:860px){
+  .hero .wrap{grid-template-columns:1fr}.radar{max-width:320px;order:-1}
+  .kpis{grid-template-columns:repeat(2,1fr)}
+  .grid2,.igrid{grid-template-columns:1fr}
+  .aucgrid{grid-template-columns:1fr}
+  .hl,.hl.d{grid-template-columns:1fr 50px}.hl .meter,.hl .hu{grid-column:1 / -1}
+  .shead .num{font-size:32px;min-width:46px}
+  .hero{padding-top:48px}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .js .rv{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+<div id="prog"></div>
+<header class="hero">
+  <div class="wrap">
+    <div>
+      <span class="eyebrow">Audit report · 13 November 2026</span>
+      <h1>Smartland Early Learning<br><span>Website, Tracking &amp; Google Ads Audit</span></h1>
+      <p class="sub">What needs to change before the end-of-year enrolment campaigns go live across ten centres, and what I will build to fix it.</p>
+      <div class="meta"><span><b>Website</b>www.smartland.com.au</span><span><b>Prepared by</b>Shamsher (Sham)</span><span><b>Google Ads</b>142-385-6762</span></div>
+      <div class="kpis">
+        <div class="kpi"><em class="cnt" data-to="10" data-dec="0">10</em><span>centres, 10 campaigns, 5 km each</span></div>
+        <div class="kpi"><em class="cnt" data-to="420" data-dec="0">420</em><span>form conversions, all at $0.00 value</span></div>
+        <div class="kpi"><em class="cnt" data-to="2" data-dec="0">2</em><span>of 10 website phone numbers tracked</span></div>
+        <div class="kpi"><em class="cnt" data-to="15.95" data-dec="2">15.95</em><span>% impression share (Search, Jan to Oct)</span></div>
+      </div>
+    </div>
+    <div class="radar" aria-hidden="true">
+      <svg viewBox="0 0 400 400">
+        <defs><radialGradient id="sg" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#BEC831" stop-opacity="0"/><stop offset="1" stop-color="#BEC831" stop-opacity=".55"/></radialGradient></defs>
+        <circle class="rg" cx="200" cy="200" r="60"/><circle class="rg" cx="200" cy="200" r="120"/><circle class="rg" cx="200" cy="200" r="180"/>
+        <line class="ax" x1="20" y1="200" x2="380" y2="200"/><line class="ax" x1="200" y1="20" x2="200" y2="380"/>
+        <g class="sw"><path d="M200 200 L200 20 A180 180 0 0 1 327 73 Z" fill="url(#sg)"/></g>
+        <text x="262" y="206">5 km</text>
+        <g>
+          <circle class="dot" cx="250" cy="120" r="5"/><circle class="halo" cx="250" cy="120" r="5"/>
+          <circle class="dot" style="animation-delay:.3s" cx="270" cy="150" r="5"/><circle class="halo" style="animation-delay:.3s" cx="270" cy="150" r="5"/>
+          <circle class="dot" style="animation-delay:.6s" cx="235" cy="165" r="5"/><circle class="halo" style="animation-delay:.6s" cx="235" cy="165" r="5"/>
+          <circle class="dot" style="animation-delay:.9s" cx="285" cy="108" r="5"/><circle class="halo" style="animation-delay:.9s" cx="285" cy="108" r="5"/>
+          <circle class="dot" style="animation-delay:1.2s" cx="150" cy="250" r="5"/><circle class="halo" style="animation-delay:1.2s" cx="150" cy="250" r="5"/>
+          <circle class="dot" style="animation-delay:1.5s" cx="110" cy="285" r="5"/><circle class="halo" style="animation-delay:1.5s" cx="110" cy="285" r="5"/>
+          <circle class="dot" style="animation-delay:1.8s" cx="125" cy="318" r="5"/><circle class="halo" style="animation-delay:1.8s" cx="125" cy="318" r="5"/>
+          <circle class="dot" style="animation-delay:2.1s" cx="90" cy="150" r="5"/><circle class="halo" style="animation-delay:2.1s" cx="90" cy="150" r="5"/>
+          <circle class="dot" style="animation-delay:2.4s" cx="305" cy="290" r="5"/><circle class="halo" style="animation-delay:2.4s" cx="305" cy="290" r="5"/>
+          <circle class="dot" style="animation-delay:2.7s" cx="330" cy="260" r="5"/><circle class="halo" style="animation-delay:2.7s" cx="330" cy="260" r="5"/>
+        </g>
+        <circle cx="200" cy="200" r="6" fill="#B45437"/>
+      </svg>
+    </div>
+  </div>
+</header>
+<nav class="top" aria-label="Sections"><div class="in"><a href="#summary">Summary</a><a href="#centres">Centres</a><a href="#tracking">Tracking</a><a href="#gtm">GTM</a><a href="#ads">Ads</a><a href="#competitors">Competitors</a><a href="#copy">Ad copy</a><a href="#keywords">Keywords</a><a href="#campaigns">Campaigns</a><a href="#landing">Landing pages</a><a href="#timeline">Timeline</a><button id="theme" type="button" aria-label="Toggle colour theme">Theme</button></div></nav>
+<main>
+<section id="summary" class="sec"><div class="wrap"><div class="shead rv"><span class="num">01</span><div><h2>Executive summary</h2></div></div><p class="lead rv">Smartland has strong raw material for paid search: a distinctive boutique, nature-based offer (Bush &amp; Beach Kinder), chef-made meals, an all-inclusive fee structure and consistently warm Google reviews. The problem is not the offer. It is that the <strong>tracking cannot tell the ten centres apart and puts no value on any lead</strong>. Fixing this before the campaigns go live will make every dollar of the short seasonal budget measurable.</p><h3 class="sub rv">Key findings</h3><div class="grid2"><article class="find rv"><span class="fn">01</span><p><strong>One form conversion for ten centres.</strong> “Book A Tour - Form” is the only lead-form action (420 conversions, $0.00 value) feeding 43 of 43 campaigns. We cannot see which centre produced a lead, or bid differently by centre.</p></article><article class="find rv"><span class="fn">02</span><p><strong>No consistent values.</strong> Form leads carry $0. Calls from ads (598) and Google-hosted clicks to call (467) carry a flat $1 each. Bidding sees calls as “worth” more than forms by accident, not by design.</p></article><article class="find rv"><span class="fn">03</span><p><strong>Only two website phone numbers are tracked</strong> (07 5479 4111 and 07 5444 4800) and both show “Awaiting conversions”. The other centres’ numbers have no website call action.</p></article><article class="find rv"><span class="fn">04</span><p><strong>Irrelevant and overlapping “Primary” actions.</strong> Menu views (a restaurant-style local action), email clicks and Google-hosted clicks to call are all Primary and flagged “Needs attention”. Three of the four goals are not even attached to the campaigns.</p></article><article class="find rv"><span class="fn">05</span><p><strong>Auction insights show room to grow.</strong> Smartland has 15.95% impression share. Guardian and Goodstart each sit under 10% and rank above Smartland when both appear (59.80% and 45.30% of the time), so ad copy and rank need to earn the click.</p></article></div><h3 class="sub rv">Priority actions</h3><ul class="prio"><li class="pri rv"><span class="pn">1</span><span class="pt">Create per-centre conversion actions (form, ads call, website call) with agreed values</span><span class="chip hi">High</span></li><li class="pri rv"><span class="pn">2</span><span class="pt">Set up 10 dedicated PPC phone numbers (forwarding to each centre) for the PPC landing pages</span><span class="chip hi">High</span></li><li class="pri rv"><span class="pn">3</span><span class="pt">Re-classify non-core primaries to Secondary; remove Menu views</span><span class="chip hi">High</span></li><li class="pri rv"><span class="pn">4</span><span class="pt">Build 10 location campaigns (5 km radius) and 10 location landing pages</span><span class="chip hi">High</span></li><li class="pri rv"><span class="pn">5</span><span class="pt">Confirm offers, availability and CCS wording so urgency copy is truthful</span><span class="chip md">Medium</span></li><li class="pri rv"><span class="pn">6</span><span class="pt">Claim and optimise centre listings on parent directory sites</span><span class="chip md">Medium</span></li></ul></div></section>
+<section id="centres" class="sec"><div class="wrap"><div class="shead rv"><span class="num">02</span><div><h2>Centres and locations</h2></div></div><p class="rv">Ten centres across Queensland and northern NSW. Families will not travel more than about <strong>5 km</strong>, so each centre becomes its own campaign.</p><div class="cgrid"><article class="ccard rv ok"><div class="ring"><i></i><i></i><b></b></div><span class="reg">Sunshine Coast</span><h3>Maroochydore</h3><p class="addr">20 Blanck St, Maroochydore QLD 4558</p><p class="pg"><span>Page</span>/early-learning-centre-maroochydore/</p><p class="ph"><span>Phone / tracking</span>07 5479 4111 (on site, tracked)</p></article><article class="ccard rv tbc"><div class="ring"><i></i><i></i><b></b></div><span class="reg">Sunshine Coast</span><h3>Minyama</h3><p class="addr">2 Jarrah St, Minyama QLD 4575</p><p class="pg"><span>Page</span>/early-learning-centre-minyama/</p><p class="ph"><span>Phone / tracking</span>To confirm; not tracked</p></article><article class="ccard rv tbc"><div class="ring"><i></i><i></i><b></b></div><span class="reg">Sunshine Coast</span><h3>Mountain Creek</h3><p class="addr">42 Molakai Dr, Mountain Creek QLD 4557</p><p class="pg"><span>Page</span>/early-learning-centre-mountain-creek/</p><p class="ph"><span>Phone / tracking</span>To confirm; not tracked</p></article><article class="ccard rv tbc"><div class="ring"><i></i><i></i><b></b></div><span class="reg">Sunshine Coast</span><h3>Sippy Downs</h3><p class="addr">9 Courage St, Sippy Downs QLD 4556</p><p class="pg"><span>Page</span>/early-learning-centre-sippy-downs/</p><p class="ph"><span>Phone / tracking</span>To confirm; not tracked</p></article><article class="ccard rv warn"><div class="ring"><i></i><i></i><b></b></div><span class="reg">Brisbane</span><h3>Carina</h3><p class="addr">Cnr Old Cleveland Rd &amp; Adelaide St, Carina QLD</p><p class="pg"><span>Page</span>/coming-soon/carina/</p><p class="ph"><span>Phone / tracking</span>Coming-soon page; confirm open date</p></article><article class="ccard rv tbc"><div class="ring"><i></i><i></i><b></b></div><span class="reg">Gold Coast South</span><h3>Tugun</h3><p class="addr">460 Coolangatta Rd, Tugun QLD 4224</p><p class="pg"><span>Page</span>/early-learning-centre-tugun/</p><p class="ph"><span>Phone / tracking</span>To confirm; not tracked</p></article><article class="ccard rv tbc"><div class="ring"><i></i><i></i><b></b></div><span class="reg">Gold Coast South</span><h3>Varsity Lakes</h3><p class="addr">194 Varsity Pde, Varsity Lakes QLD 4227</p><p class="pg"><span>Page</span>/early-learning-centre-varsity-lakes/</p><p class="ph"><span>Phone / tracking</span>To confirm; not tracked</p></article><article class="ccard rv tbc"><div class="ring"><i></i><i></i><b></b></div><span class="reg">Coffs Harbour South</span><h3>Coffs Harbour</h3><p class="addr">1 Kiddell Pl, North Boambee Valley NSW 2450</p><p class="pg"><span>Page</span>/early-learning-centre-coffs-harbour/</p><p class="ph"><span>Phone / tracking</span>To confirm; not tracked</p></article><article class="ccard rv tbc"><div class="ring"><i></i><i></i><b></b></div><span class="reg">Port Macquarie</span><h3>Port Macquarie (Major Innes Rd)</h3><p class="addr">85 Major Innes Rd, Port Macquarie NSW 2444</p><p class="pg"><span>Page</span>/early-learning-centre-port-macquarie/</p><p class="ph"><span>Phone / tracking</span>To confirm; not tracked</p></article><article class="ccard rv tbc"><div class="ring"><i></i><i></i><b></b></div><span class="reg">Port Macquarie</span><h3>Port Macquarie (Sovereign Hills)</h3><p class="addr">59 Sovereign Dr, Port Macquarie NSW 2444</p><p class="pg"><span>Page</span>/early-learning-centre-sovereign-hills/</p><p class="ph"><span>Phone / tracking</span>To confirm; not tracked</p></article></div><div class="callout rv"><strong>Overlap watch-outs (verify on the radius map):</strong> Minyama and Mountain Creek are close, so their 5 km radii will overlap heavily; Sippy Downs and Mountain Creek overlap partly; the two Port Macquarie centres are likely to overlap. Tugun sits on the NSW border, so its radius will reach Tweed Heads / Coolangatta. Use suburb-specific negative keywords between neighbouring campaigns so the centres do not bid against each other.</div></div></section>
+<section id="tracking" class="sec"><div class="wrap"><div class="shead rv"><span class="num">03</span><div><h2>Conversion tracking audit</h2></div></div><h3 class="sub rv">3.1 Current state</h3><div class="tw rv"><table class="state"><thead><tr><th>Goal (campaigns)</th><th>Conversion action</th><th>Source</th><th>All conv. / value</th><th>Status</th><th>Verdict</th></tr></thead><tbody><tr><td>Submit lead form (43 of 43)</td><td><strong>Book A Tour - Form</strong></td><td>Website</td><td class="n">420 / $0.00</td><td><span class="st ok">Active</span></td><td>One action for ten centres, no value. Split per centre and add value.</td></tr><tr><td>Phone call lead (42 of 43)</td><td><strong>Calls from Ads - Call Extension</strong></td><td>Call from Ads</td><td class="n">598 / 598.00</td><td><span class="st ok">Active</span></td><td>Flat $1 per call. Cannot separate centres.</td></tr><tr><td>Phone call lead</td><td><strong>Calls from Website Phone Number - 07 5479 4111</strong></td><td>Website</td><td class="n">127 / $0.00</td><td><span class="st wait">Awaiting conversions</span></td><td>Matches Maroochydore. No value. Test the tag.</td></tr><tr><td>Phone call lead</td><td><strong>Calls from Website Phone Number - 07 5444 4800</strong></td><td>Website</td><td class="n">105 / $0.00</td><td><span class="st wait">Awaiting conversions</span></td><td>Not matched to a centre page. Confirm which centre it belongs to.</td></tr><tr><td>Contact (0 of 43)</td><td><strong>Clicks to call</strong></td><td>Google hosted</td><td class="n">467 / 467.00</td><td><span class="st ok">Active</span></td><td>Primary but unused; overlaps other call actions. Make Secondary.</td></tr><tr><td>Contact (0 of 43)</td><td><strong>Email</strong></td><td>Website</td><td class="n">162 / $0.00</td><td><span class="st wait">Awaiting conversions</span></td><td>Low-intent click. Make Secondary.</td></tr><tr><td>Page view (0 of 43)</td><td><strong>Local actions - Menu views</strong></td><td>Google hosted</td><td class="n">2 / 2.00</td><td><span class="st wait">Awaiting conversions</span></td><td>Irrelevant to childcare. Remove.</td></tr></tbody></table></div><p class="note rv">Goals marked “Needs attention”: Phone call lead, Contact and Page view. “All conv.” includes secondary and unused goals, so these totals overstate what bidding has actually been optimising to.</p><h3 class="sub rv">3.2 Recommended structure</h3><p class="rv">Build three <strong>primary</strong> actions per centre so each of the ten campaigns reports, and is valued, on its own:</p><div class="tw"><table class=""><thead><tr><th>Action (per centre)</th><th>How it fires</th><th>Notes</th></tr></thead><tbody><tr><td>SL | Tour Request | [Centre]</td><td>Form submission, with the centre read from the “Which Centre” field</td><td>Count: One. Thank-you event or dataLayer push (generate_lead) with a centre parameter. Never pass the child’s name or age to any ad tag.</td></tr><tr><td>SL | Call from Ads | [Centre]</td><td>Call asset on that campaign</td><td>Set the call asset’s conversion action to this centre’s action; minimum call length 60 seconds.</td></tr><tr><td>SL | Call from Website | [Centre]</td><td>Dedicated PPC phone number on that centre’s landing page</td><td>Google forwarding number or call-tracking number; capture GCLID.</td></tr></tbody></table></div><div class="callout rv"><strong>Make only these primary:</strong> Tour Request and qualified calls (60 seconds or more). Move Clicks to call, Email and any 3D-tour or engagement actions to <strong>Secondary</strong> (reporting only). <strong>Remove</strong> Menu views. This keeps bidding focused on real tour intent.</div><h3 class="sub rv">3.3 Giving each action a value</h3><p class="rv">Values do not need to be perfect, but they must be deliberate and consistent. Suggested method, to agree with the client:</p><ul class="good rv"><li><strong>Lead value = enrolment probability × annual revenue per enrolled child.</strong> Inputs needed per centre: tour-to-enrolment rate, average days per week booked, average daily fee, and typical length of stay.</li><li>Give <strong>calls of 60 seconds or more a higher value than forms</strong>, since they usually book a tour faster, then give each centre its own value (a full centre needs fewer leads than an under-filled one).</li><li>Once values exist, switch the campaigns from Maximise clicks and Maximise conversions to <strong>Maximise conversion value</strong> so budget leans toward higher-value centres.</li><li><strong>Optional phase 2:</strong> import “Enrolled” as an offline conversion via GCLID from the enrolment system. This is the best-practice signal but is not required for the first season.</li></ul><h3 class="sub rv">3.4 Dedicated phone numbers for PPC landing pages</h3><p class="rv">We are building a separate landing page per centre (and per service where it applies), the same approach used for Auto King and Pink Slip Today. The numbers on the main website are needed for SEO and Google Business Profile consistency, so <strong>we need separate numbers for the PPC pages.</strong> Two ways to do it:</p><div class="tw"><table class=""><thead><tr><th>Option</th><th>How it works</th><th>Trade-off</th></tr></thead><tbody><tr><td>A. Google forwarding numbers</td><td>Google swaps in a tracking number on the landing page and forwards to the centre line. Calls over the set length count as conversions.</td><td>Free, quick to set up; no call recording.</td></tr><tr><td>B. 10 dedicated numbers via a call-tracking provider</td><td>One forwarding number per centre, used only on PPC pages and call assets.</td><td>Small monthly cost; adds call recording and “did they book a tour” outcome tagging.</td></tr></tbody></table></div><div class="callout rv"><strong>Requirement:</strong> 10 numbers forwarding to each centre’s existing line (Option B), or sign-off on Option A. Either way, keep the PPC pages out of search results (noindex) so the original numbers stay the only ones Google sees for SEO.</div><h3 class="sub rv">3.5 Implementation checklist</h3><ol class="steps"><li>Add a dataLayer event with the centre name on successful submission of each landing page form.</li><li>Create the 30 centre-specific actions (10 forms, 10 ads calls, 10 website calls), values, 30-day window, data-driven attribution.</li><li>Re-classify Primary/Secondary; remove Menu views; archive unused legacy campaigns (43 campaigns are attached to the account-default goals).</li><li>QA: submit a test enquiry for every centre and place a test call to every number; confirm Tag Assistant and Google Ads status “Recording conversions” before launch.</li></ol></div></section>
+<section id="gtm" class="sec"><div class="wrap"><div class="shead rv"><span class="num">04</span><div><h2>Google Tag Manager: what I will build</h2></div></div><p class="lead rv">I will rebuild the tracking properly in <strong>one clean, documented Tag Manager container</strong>, so every lead is counted once, attributed to the right centre and passed to Google Ads with a value.</p><div class="ggrid"><article class="gcard rv"><span class="gi">01</span><h4>Core tags</h4><p>Google tag, Conversion Linker, consent-aware firing, correct tag sequencing.</p></article><article class="gcard rv"><span class="gi">02</span><h4>Form tracking</h4><p>Custom event on successful submission only (dataLayer generate_lead with centre, form type and page). Newsletter and careers forms excluded. No child name or age is ever sent.</p></article><article class="gcard rv"><span class="gi">03</span><h4>Per-centre conversion tags</h4><p>One Google Ads conversion tag per centre (10), each with its own conversion label and value, driven by a lookup-table variable keyed on the centre field.</p></article><article class="gcard rv"><span class="gi">04</span><h4>Call tracking</h4><p>Tap-to-call trigger tagged with the centre; Google forwarding / dedicated PPC number tags on the landing pages; per-centre website call conversions.</p></article></div></div></section>
+<section id="ads" class="sec"><div class="wrap"><div class="shead rv"><span class="num">05</span><div><h2>Google Ads account review</h2></div></div><h3 class="sub rv">Auction insights (Search, 1 Jan to 31 Oct 2026)</h3><div class="aucgrid"><div class="gauge rv"><svg viewBox="0 0 120 120" aria-label="Impression share 15.95 percent"><circle class="gt" cx="60" cy="60" r="50"/><circle class="gv" cx="60" cy="60" r="50" style="--p:15.95"/></svg><div class="gc"><span class="gnum"><em class="cnt" data-to="15.95" data-dec="2">15.95</em><small>%</small></span><span class="gl">Smartland impression share</span></div></div><div class="bars"><div class="bgrp rv"><h4>Top of page rate</h4><div class="brow"><span>Smartland</span><div class="bt"><i class="me" style="--w:68.52%"></i></div><em><b class="cnt" data-to="68.52" data-dec="2">68.52</b>%</em></div><div class="brow"><span>Guardian</span><div class="bt"><i class="gu" style="--w:82.51%"></i></div><em><b class="cnt" data-to="82.51" data-dec="2">82.51</b>%</em></div><div class="brow"><span>Goodstart</span><div class="bt"><i class="go" style="--w:75.36%"></i></div><em><b class="cnt" data-to="75.36" data-dec="2">75.36</b>%</em></div></div><div class="bgrp rv"><h4>Absolute top of page rate</h4><div class="brow"><span>Smartland</span><div class="bt"><i class="me" style="--w:30.32%"></i></div><em><b class="cnt" data-to="30.32" data-dec="2">30.32</b>%</em></div><div class="brow"><span>Guardian</span><div class="bt"><i class="gu" style="--w:40.62%"></i></div><em><b class="cnt" data-to="40.62" data-dec="2">40.62</b>%</em></div><div class="brow"><span>Goodstart</span><div class="bt"><i class="go" style="--w:20.53%"></i></div><em><b class="cnt" data-to="20.53" data-dec="2">20.53</b>%</em></div></div><div class="bgrp rv"><h4>Position above rate (how often they rank above Smartland)</h4><div class="brow"><span>Guardian</span><div class="bt"><i class="gu" style="--w:59.8%"></i></div><em><b class="cnt" data-to="59.8" data-dec="2">59.80</b>%</em></div><div class="brow"><span>Goodstart</span><div class="bt"><i class="go" style="--w:45.3%"></i></div><em><b class="cnt" data-to="45.3" data-dec="2">45.30</b>%</em></div></div></div></div><div class="tw"><table class=""><thead><tr><th>Domain</th><th>Impr. share</th><th>Overlap</th><th>Pos. above</th><th>Top of page</th><th>Abs. top</th><th>Outranking</th></tr></thead><tbody><tr><td>Smartland (You)</td><td>15.95%</td><td>-</td><td>-</td><td>68.52%</td><td>30.32%</td><td>-</td></tr><tr><td>guardian.edu.au</td><td>&lt; 10%</td><td>6.18%</td><td>59.80%</td><td>82.51%</td><td>40.62%</td><td>15.36%</td></tr><tr><td>goodstart.org.au</td><td>&lt; 10%</td><td>10.97%</td><td>45.30%</td><td>75.36%</td><td>20.53%</td><td>15.16%</td></tr></tbody></table></div><ul class="good rv"><li><strong>Only two competitors surface</strong>, both national providers with low overlap. Local independents are not appearing, which is a sign the search space is thin and winnable at the suburb level.</li><li><strong>Guardian is the tougher rival</strong> on position: it sits above Smartland 59.80% of the time and wins an absolute-top spot 40.62% of the time versus Smartland’s 30.32%. Goodstart is above Smartland 45.30% of the time with a lower absolute-top rate (20.53%).</li><li><strong>15.95% impression share is blended</strong> across a full year in which campaigns are mostly off, so it understates in-season performance. It also cannot say whether budget or rank was the limit.</li><li>Priority fixes to win position: tighter location-specific ad groups, stronger ad relevance (suburb in headline), assets (call, location, sitelinks, promotion) and conversion value for smart bidding.</li></ul></div></section>
+<section id="competitors" class="sec"><div class="wrap"><div class="shead rv"><span class="num">06</span><div><h2>Competitor review</h2></div></div><div class="tw"><table class=""><thead><tr><th>Competitor</th><th>What they lead with</th><th>Hooks and offers seen</th><th>Opening for Smartland</th></tr></thead><tbody><tr><td>Goodstart Early Learning (goodstart.org.au)</td><td>Australia’s largest provider; “for children, not for profit”; 650+ centres; “Enrol now!”; family services line 1800 222 543</td><td>Book a tour; discounts on multiple days; all-day sessions; fee assistance; “now taking enrolments” banners</td><td>Boutique and personal vs large and national; nature-based programs; inclusions; local centre managers by name</td></tr><tr><td>Guardian Childcare &amp; Education (guardian.edu.au)</td><td>Premium positioning; “Exceeding” ratings at some centres; exclusive “To BE Me” program; in-house chef (5 foods a day at Caloundra)</td><td>Book a tour; “Tour Month” campaigns; now enrolling / vacancies; School Team Savers discount at selected centres</td><td>Chef-made meals and all-inclusive pricing; Bush/Beach Kinder; owner-operated feel</td></tr><tr><td>Local independents</td><td>Examples: Bella Grace Bright Water Kindergarten (Mountain Creek), Flinders Early Learning Centre, Alexandra-Mooloolaba Community Kindergarten</td><td>Not verified as advertisers</td><td>Check each suburb’s auction before launch</td></tr><tr><td>Directories and aggregators</td><td>CareForKids, Toddle, KindiCare, eChildcare, LocalSearch rank for “[suburb] child care”</td><td>Rebate calculators, fee averages, vacancy tables</td><td>Claim and complete Smartland listings; mirror best content on PPC pages</td></tr></tbody></table></div><h3 class="sub rv">Patterns that win clicks in this category</h3><ul class="good rv"><li><strong>Book a tour</strong> is the universal call to action; none of the large providers ask for a full enrolment up front.</li><li><strong>Time-bound enrolment language</strong> (“now enrolling”, “Tour Month”, “taking enrolments for the new year”) is common, so urgency alone will not differentiate; pair it with something only Smartland can say.</li><li><strong>Cost reassurance</strong> (discounts on multiple days, fee assistance, subsidy) is used by the national providers. Smartland’s equivalent is “all-inclusive: nappies, wipes, meals, sunscreen”.</li><li><strong>Smartland should own:</strong> boutique and family-owned, Bush &amp; Beach Kinder, chef-made meals, 3D tours, daily photo updates, centre manager by name.</li><li>Use each centre’s current NQS rating: if a centre is “Exceeding”, that becomes a headline.</li></ul></div></section>
+<section id="copy" class="sec"><div class="wrap"><div class="shead rv"><span class="num">07</span><div><h2>Ad copy recommendations</h2></div></div><p class="lead rv">Responsive Search Ads: up to 15 headlines (30 characters max) and 4 descriptions (90 characters max). Character counts are checked. Each campaign uses the same bank with the suburb swapped in; Google Ads Editor find-and-replace makes the 10 copies quick. <em>Tap any line to copy it.</em></p><div class="copybox rv"><h3 class="sub">Headlines</h3><div class="tabs" role="tablist"><button role="tab" class="tab on" data-t="t0">Location &amp; trust</button><button role="tab" class="tab" data-t="t1">Programs &amp; inclusions</button><button role="tab" class="tab" data-t="t2">Parent emotion</button><button role="tab" class="tab" data-t="t3">Urgency &amp; offer</button></div><div class="pane on" id="t0"><button class="hl" data-copy="Child Care Maroochydore"><span class="ht">Child Care Maroochydore</span><span class="meter"><i style="--w:76.7%"></i></span><span class="cc">23/30</span><span class="hu">Swap suburb per campaign (all 10 verified ≤30)</span></button><button class="hl" data-copy="Smartland Early Learning"><span class="ht">Smartland Early Learning</span><span class="meter"><i style="--w:80.0%"></i></span><span class="cc">24/30</span><span class="hu">Brand, pin to position 1 or 2</span></button><button class="hl" data-copy="Family-Owned Boutique Centre"><span class="ht">Family-Owned Boutique Centre</span><span class="meter"><i style="--w:93.3%"></i></span><span class="cc">28/30</span><span class="hu">Core differentiator vs national chains</span></button><button class="hl" data-copy="Qualified, Caring Educators"><span class="ht">Qualified, Caring Educators</span><span class="meter"><i style="--w:90.0%"></i></span><span class="cc">27/30</span><span class="hu">Trust</span></button><button class="hl" data-copy="Rated Highly by Local Parents"><span class="ht">Rated Highly by Local Parents</span><span class="meter"><i style="--w:96.7%"></i></span><span class="cc">29/30</span><span class="hu">Backed by Google reviews on site</span></button></div><div class="pane" id="t1"><button class="hl" data-copy="Bush &amp; Beach Kinder Programs"><span class="ht">Bush &amp; Beach Kinder Programs</span><span class="meter"><i style="--w:93.3%"></i></span><span class="cc">28/30</span><span class="hu">Unique vs Goodstart / Guardian</span></button><button class="hl" data-copy="Chef-Made Meals Included"><span class="ht">Chef-Made Meals Included</span><span class="meter"><i style="--w:80.0%"></i></span><span class="cc">24/30</span><span class="hu">On site: chef-made meals</span></button><button class="hl" data-copy="Nappies &amp; Wipes Included"><span class="ht">Nappies &amp; Wipes Included</span><span class="meter"><i style="--w:80.0%"></i></span><span class="cc">24/30</span><span class="hu">Listed under “What’s Included”</span></button><button class="hl" data-copy="Govt-Approved Kindergarten"><span class="ht">Govt-Approved Kindergarten</span><span class="meter"><i style="--w:86.7%"></i></span><span class="cc">26/30</span><span class="hu">QLD centres only (NSW wording differs)</span></button><button class="hl" data-copy="Take a Virtual 3D Tour"><span class="ht">Take a Virtual 3D Tour</span><span class="meter"><i style="--w:73.3%"></i></span><span class="cc">22/30</span><span class="hu">Matterport/360 tours exist on site</span></button><button class="hl" data-copy="Daily Photo Updates"><span class="ht">Daily Photo Updates</span><span class="meter"><i style="--w:63.3%"></i></span><span class="cc">19/30</span><span class="hu">Mentioned repeatedly in parent reviews</span></button></div><div class="pane" id="t2"><button class="hl" data-copy="Peace of Mind for Parents"><span class="ht">Peace of Mind for Parents</span><span class="meter"><i style="--w:83.3%"></i></span><span class="cc">25/30</span><span class="hu">Emotional hook</span></button><button class="hl" data-copy="A Second Home for Your Child"><span class="ht">A Second Home for Your Child</span><span class="meter"><i style="--w:93.3%"></i></span><span class="cc">28/30</span><span class="hu">Matches “extension of your family” positioning</span></button><button class="hl" data-copy="Where Kids Love to Learn"><span class="ht">Where Kids Love to Learn</span><span class="meter"><i style="--w:80.0%"></i></span><span class="cc">24/30</span><span class="hu">Emotional hook</span></button><button class="hl" data-copy="Smooth, Gentle Settling-In"><span class="ht">Smooth, Gentle Settling-In</span><span class="meter"><i style="--w:86.7%"></i></span><span class="cc">26/30</span><span class="hu">Site has a Settling In page</span></button></div><div class="pane" id="t3"><button class="hl" data-copy="Secure Your 2027 Place Now"><span class="ht">Secure Your 2027 Place Now</span><span class="meter"><i style="--w:86.7%"></i></span><span class="cc">26/30</span><span class="hu">Only if places genuinely available</span></button><button class="hl" data-copy="2027 Places Filling Fast"><span class="ht">2027 Places Filling Fast</span><span class="meter"><i style="--w:80.0%"></i></span><span class="cc">24/30</span><span class="hu">Only if true for that centre</span></button><button class="hl" data-copy="Enrol Now for Jan 2027"><span class="ht">Enrol Now for Jan 2027</span><span class="meter"><i style="--w:73.3%"></i></span><span class="cc">22/30</span><span class="hu">Matches Dec/Jan campaign window</span></button><button class="hl" data-copy="Book Your Tour Before Xmas"><span class="ht">Book Your Tour Before Xmas</span><span class="meter"><i style="--w:86.7%"></i></span><span class="cc">26/30</span><span class="hu">Time-bound CTA</span></button><button class="hl" data-copy="Tours Available This Week"><span class="ht">Tours Available This Week</span><span class="meter"><i style="--w:83.3%"></i></span><span class="cc">25/30</span><span class="hu">Needs centre to confirm tour capacity</span></button><button class="hl" data-copy="Free Centre Tour - Book Today"><span class="ht">Free Centre Tour - Book Today</span><span class="meter"><i style="--w:96.7%"></i></span><span class="cc">29/30</span><span class="hu">Direct CTA</span></button><button class="hl" data-copy="Child Care Subsidy Available"><span class="ht">Child Care Subsidy Available</span><span class="meter"><i style="--w:93.3%"></i></span><span class="cc">28/30</span><span class="hu">Confirm CCS approval/messaging</span></button></div></div><div class="copybox rv"><h3 class="sub">Descriptions</h3><button class="hl d" data-copy="Family-owned boutique centre. Bush &amp; Beach Kinder, chef-made meals. Book your tour."><span class="ht">Family-owned boutique centre. Bush &amp; Beach Kinder, chef-made meals. Book your tour.</span><span class="meter"><i style="--w:92.2%"></i></span><span class="cc">83/90</span><span class="hu">Core / differentiators</span></button><button class="hl d" data-copy="Nappies, wipes, sunscreen &amp; meals all included. See it for yourself - book a tour."><span class="ht">Nappies, wipes, sunscreen &amp; meals all included. See it for yourself - book a tour.</span><span class="meter"><i style="--w:91.1%"></i></span><span class="cc">82/90</span><span class="hu">Value / inclusions</span></button><button class="hl d" data-copy="Daily photo updates, caring educators and a home-away-from-home feel. Book a tour."><span class="ht">Daily photo updates, caring educators and a home-away-from-home feel. Book a tour.</span><span class="meter"><i style="--w:91.1%"></i></span><span class="cc">82/90</span><span class="hu">Parent emotion</span></button><button class="hl d" data-copy="Govt-approved kindy program led by a university-qualified teacher. Book a tour."><span class="ht">Govt-approved kindy program led by a university-qualified teacher. Book a tour.</span><span class="meter"><i style="--w:87.8%"></i></span><span class="cc">79/90</span><span class="hu">Kindy (QLD centres only)</span></button><button class="hl d" data-copy="Limited 2027 places at Maroochydore. Book a tour today and meet our educators."><span class="ht">Limited 2027 places at Maroochydore. Book a tour today and meet our educators.</span><span class="meter"><i style="--w:86.7%"></i></span><span class="cc">78/90</span><span class="hu">Urgency (confirm availability)</span></button><button class="hl d" data-copy="Start 2027 with a smooth settling-in. Book a tour now and secure your child&#x27;s place."><span class="ht">Start 2027 with a smooth settling-in. Book a tour now and secure your child’s place.</span><span class="meter"><i style="--w:93.3%"></i></span><span class="cc">84/90</span><span class="hu">Urgency + emotion (confirm availability)</span></button><button class="hl d" data-copy="Meet the educators, see the rooms and ask every question. Book your tour today."><span class="ht">Meet the educators, see the rooms and ask every question. Book your tour today.</span><span class="meter"><i style="--w:87.8%"></i></span><span class="cc">79/90</span><span class="hu">Low-friction CTA</span></button></div><h3 class="sub rv">Location headline set (all within 30 characters)</h3><div class="tw"><table class=""><thead><tr><th>Headline 1</th><th>Headline 2</th><th>Headline 3 (kindy)</th></tr></thead><tbody><tr><td>Child Care Maroochydore</td><td>Maroochydore Early Learning</td><td>Maroochydore Kindy Program</td></tr><tr><td>Child Care Minyama</td><td>Minyama Early Learning</td><td>Minyama Kindy Program</td></tr><tr><td>Child Care Mountain Creek</td><td>Mountain Creek Early Learning</td><td>Mountain Creek Kindy Program</td></tr><tr><td>Child Care Sippy Downs</td><td>Sippy Downs Early Learning</td><td>Sippy Downs Kindy Program</td></tr><tr><td>Child Care Carina</td><td>Carina Early Learning</td><td>Carina Kindy Program</td></tr><tr><td>Child Care Tugun</td><td>Tugun Early Learning</td><td>Tugun Kindy Program</td></tr><tr><td>Child Care Varsity Lakes</td><td>Varsity Lakes Early Learning</td><td>Varsity Lakes Kindy Program</td></tr><tr><td>Child Care Coffs Harbour</td><td>Coffs Harbour Early Learning</td><td>Coffs Harbour Kindy Program</td></tr><tr><td>Child Care Port Macquarie</td><td>Port Macquarie Early Learning</td><td>Port Macquarie Kindy Program</td></tr><tr><td>Child Care Sovereign Hills</td><td>Sovereign Hills Early Learning</td><td>Sovereign Hills Kindy Program</td></tr></tbody></table></div><h3 class="sub rv">Rules for urgency and offers</h3><ul class="good rv"><li>Only use “places filling”, “limited places” or “secure your place” when the specific centre confirms availability. Use “Tours available” or “Enrol for 2027” where it is not.</li><li>Confirm whether any real offer exists (for example waived enrolment fee, sibling discount, refer-a-friend). Do not advertise one that has not been approved.</li><li>Use “Govt-approved kindergarten” only for Queensland centres; NSW wording differs, so write those separately.</li><li>Pin the brand headline in position 1 or 2 and the suburb headline in the other; leave the rest unpinned so Google can learn.</li><li>Assets to add: call asset (the centre’s tracked number), location asset (each centre’s Business Profile), sitelinks (Book a Tour, Kindergarten, What’s Included, 3D Tour, Reviews), callouts (Family-owned, Chef-made meals, Nappies &amp; wipes included, Bush &amp; Beach Kinder), structured snippets (programs), images (centre and outdoor spaces).</li></ul></div></section>
+<section id="keywords" class="sec"><div class="wrap"><div class="shead rv"><span class="num">08</span><div><h2>Keyword ideas</h2></div></div><p class="lead rv">Start with <strong>phrase and exact match</strong> because each catchment is small and the season is short. Add broad match with value-based bidding only after enough conversions exist. Validate volumes in Keyword Planner per suburb before locking.</p><div class="tw"><table class=""><thead><tr><th>Theme (ad group)</th><th>Example keywords (swap [suburb])</th><th>Landing page</th></tr></thead><tbody><tr><td>Child care / daycare</td><td>child care [suburb], childcare [suburb], day care [suburb], daycare [suburb], child care centre [suburb], childcare near me</td><td>Centre landing page</td></tr><tr><td>Early learning</td><td>early learning centre [suburb], early learning [suburb], best early learning centre [suburb], boutique early learning</td><td>Centre landing page</td></tr><tr><td>Kindergarten / kindy</td><td>kindergarten [suburb], kindy [suburb], pre kindy [suburb], kindergarten program [suburb], bush kinder, beach kinder</td><td>Kindy-focused page (where offered)</td></tr><tr><td>Long day care / infants</td><td>long day care [suburb], baby care [suburb], nursery [suburb], toddler care [suburb], infant care</td><td>Centre landing page</td></tr><tr><td>Before &amp; after school / vacation care</td><td>before and after school care [suburb], after school care [suburb], vacation care [suburb], school holiday care [suburb]</td><td>OSHC page (only centres that offer it)</td></tr><tr><td>Cost and subsidy</td><td>child care fees [suburb], daycare cost [suburb], child care subsidy [suburb]</td><td>Centre page with fee/CCS section</td></tr><tr><td>Brand (exact)</td><td>[smartland early learning], [smartland [suburb]], [smartland boutique early learning]</td><td>Centre landing page</td></tr></tbody></table></div><h3 class="sub rv">Indicative nearby suburbs to add per centre (verify against the 5 km radius)</h3><div class="tw"><table class=""><thead><tr><th>Centre</th><th>Suburbs / terms</th></tr></thead><tbody><tr><td>Maroochydore</td><td>Maroochydore, Kuluin, Cotton Tree, Alexandra Headland, Kunda Park, Mooloolaba</td></tr><tr><td>Minyama</td><td>Minyama, Buddina, Mooloolaba, Warana, Wurtulla, Parrearra, Kawana</td></tr><tr><td>Mountain Creek</td><td>Mountain Creek, Buddina, Buderim, Kawana, Sippy Downs</td></tr><tr><td>Sippy Downs</td><td>Sippy Downs, Buderim, Chancellor Park, Palmview, Mountain Creek</td></tr><tr><td>Carina</td><td>Carina, Carina Heights, Camp Hill, Carindale, Seven Hills, Morningside</td></tr><tr><td>Tugun</td><td>Tugun, Bilinga, Currumbin, Coolangatta, Kirra, Elanora, Tweed Heads</td></tr><tr><td>Varsity Lakes</td><td>Varsity Lakes, Robina, Burleigh Waters, Reedy Creek, Merrimac, Clear Island Waters</td></tr><tr><td>Coffs Harbour</td><td>North Boambee Valley, Coffs Harbour, Toormina, Sawtell, Bonville</td></tr><tr><td>Port Macquarie (Major Innes Rd)</td><td>Port Macquarie, Port Macquarie West, Wauchope (check radius)</td></tr><tr><td>Port Macquarie (Sovereign Hills)</td><td>Sovereign Hills, Thrumster, Port Macquarie (check radius)</td></tr></tbody></table></div><h3 class="sub rv">Negative keywords (add at account level)</h3><div class="negs rv"><span class="neg">jobs</span><span class="neg">job</span><span class="neg">careers</span><span class="neg">career</span><span class="neg">employment</span><span class="neg">hiring</span><span class="neg">vacancies (staff)</span><span class="neg">salary</span><span class="neg">resume</span><span class="neg">work</span><span class="neg">traineeship</span><span class="neg">apprenticeship</span><span class="neg">course</span><span class="neg">courses</span><span class="neg">certificate</span><span class="neg">cert iii</span><span class="neg">diploma</span><span class="neg">tafe</span><span class="neg">training</span><span class="neg">qualification</span><span class="neg">babysitter</span><span class="neg">babysitting</span><span class="neg">nanny</span><span class="neg">au pair</span><span class="neg">family day care</span><span class="neg">home daycare</span><span class="neg">login</span><span class="neg">portal</span><span class="neg">family lounge</span><span class="neg">app</span><span class="neg">toys</span><span class="neg">furniture</span><span class="neg">clothing</span><span class="neg">school uniform</span><span class="neg">free</span></div><p class="note rv">Why: the site has a Careers page and a parent portal (“My Family Lounge Login”), so job seekers and existing families will otherwise trigger brand and generic terms. Add suburb-name negatives between neighbouring campaigns (for example “mountain creek” in the Minyama campaign) once search terms confirm overlap. Competitor-name bidding (Goodstart, Guardian) is optional and low priority.</p></div></section>
+<section id="campaigns" class="sec"><div class="wrap"><div class="shead rv"><span class="num">09</span><div><h2>Campaign structure: 10 location campaigns</h2></div></div><p class="lead rv">One Search campaign per centre, built once and cloned. Targeting: 5 km radius around the centre address, <strong>presence only</strong>, scheduled start and end dates for the end-of-year window so campaigns switch off by themselves.</p><div class="campgrid"><article class="camp rv"><span class="cn">01</span><h4>SL | Search | Maroochydore</h4><p>Tracked number 07 5479 4111 already exists; replace with PPC number on LP</p><div class="r5"><i></i><b>5 km</b></div></article><article class="camp rv"><span class="cn">02</span><h4>SL | Search | Minyama</h4><p>Overlaps Mountain Creek; use cross-negatives</p><div class="r5"><i></i><b>5 km</b></div></article><article class="camp rv"><span class="cn">03</span><h4>SL | Search | Mountain Creek</h4><p>Overlaps Minyama and Sippy Downs</p><div class="r5"><i></i><b>5 km</b></div></article><article class="camp rv"><span class="cn">04</span><h4>SL | Search | Sippy Downs</h4><p>University-area catchment</p><div class="r5"><i></i><b>5 km</b></div></article><article class="camp rv"><span class="cn">05</span><h4>SL | Search | Carina</h4><p>Run only if centre can take tours; otherwise register-interest</p><div class="r5"><i></i><b>5 km</b></div></article><article class="camp rv"><span class="cn">06</span><h4>SL | Search | Tugun</h4><p>Radius reaches NSW border; ad schedule and copy should not assume QLD-only kindy wording for NSW searchers</p><div class="r5"><i></i><b>5 km</b></div></article><article class="camp rv"><span class="cn">07</span><h4>SL | Search | Varsity Lakes</h4><p>Bond University / Robina catchment</p><div class="r5"><i></i><b>5 km</b></div></article><article class="camp rv"><span class="cn">08</span><h4>SL | Search | Coffs Harbour</h4><p>NSW wording (no QLD kindy line)</p><div class="r5"><i></i><b>5 km</b></div></article><article class="camp rv"><span class="cn">09</span><h4>SL | Search | Port Macquarie (Major Innes)</h4><p>Overlap check with campaign 10</p><div class="r5"><i></i><b>5 km</b></div></article><article class="camp rv"><span class="cn">10</span><h4>SL | Search | Port Macquarie (Sovereign Hills)</h4><p>Overlap check with campaign 9</p><div class="r5"><i></i><b>5 km</b></div></article></div><div class="callout rv"><strong>Inside each campaign:</strong> ad groups for Child care / daycare, Early learning, Kindergarten, Long day care / infants, Before & after school care (only if offered), Cost & subsidy, and Brand (exact). One responsive search ad per group with 15 headlines and 4 descriptions, plus all assets listed in section 7.</div><ul class="good rv"><li><strong>Bidding:</strong> start with Maximise clicks to build traffic while the new tracking collects data; then move to Maximise conversions, and to Maximise conversion value once values are set. Use a target CPA or ROAS only after enough conversions accumulate on the new setup.</li><li><strong>Budget:</strong> set per centre after Keyword Planner volumes are checked and vacancies are confirmed; fuller centres get less, under-filled centres get more. Daily budget pacing across the end-of-year window.</li></ul></div></section>
+<section id="landing" class="sec"><div class="wrap"><div class="shead rv"><span class="num">10</span><div><h2>Landing page plan</h2></div></div><p class="lead rv">Dedicated PPC landing pages, one per centre first, with service-specific pages (kindy, before/after school care) only where that centre offers the service. <strong>Verify services per centre</strong> before building any service page.</p><div class="lpstack"><div class="lpb rv"><span>1</span><div><h4>Hero</h4><p>Suburb headline (“Child Care in Maroochydore”), one-line differentiator, <strong>Book a Tour</strong> button and the PPC phone number</p></div></div><div class="lpb rv"><span>2</span><div><h4>Short form</h4><p>Parent name, phone, email, child age band, preferred start month, centre pre-selected (hidden field); no child names</p></div></div><div class="lpb rv"><span>3</span><div><h4>Why Smartland</h4><p>Boutique and family-owned, Bush &amp; Beach Kinder, chef-made meals, qualified educators</p></div></div><div class="lpb rv"><span>4</span><div><h4>What’s included</h4><p>Nappies, wipes, sunscreen, meals, learning resources, school-readiness</p></div></div><div class="lpb rv"><span>5</span><div><h4>Proof</h4><p>Google reviews for that centre, centre manager photo and name</p></div></div><div class="lpb rv"><span>6</span><div><h4>See it first</h4><p>3D / virtual tour (Matterport or 360) and photo gallery</p></div></div><div class="lpb rv"><span>7</span><div><h4>Fees &amp; subsidy</h4><p>Plain-language fee guidance and Child Care Subsidy information (client to approve wording)</p></div></div><div class="lpb rv"><span>8</span><div><h4>Map &amp; hours</h4><p>Address, map embed, opening hours, directions button</p></div></div><div class="lpb rv"><span>9</span><div><h4>FAQ</h4><p>Settling-in, ratios, allergies, tour length, vacancies</p></div></div></div><ul class="good rv"><li>Set PPC pages to noindex; use the PPC phone number and the centre’s tracked form only on these pages.</li><li>Mobile-first: sticky call and “Book a Tour” buttons; page speed under 3 seconds on 4G.</li><li>Thank-you event fires the centre-specific conversion; include an on-page confirmation with next steps.</li></ul></div></section>
+<section id="timeline" class="sec"><div class="wrap"><div class="shead rv"><span class="num">11</span><div><h2>Suggested timeline</h2></div></div><div class="tline"><div class="tli rv"><span class="dot"></span><div><small>16 to 20 Nov</small><h4>Week 1</h4><p>Build Tag Manager tags, per-centre conversion actions and values; landing pages built; PPC numbers installed (pending numbers)</p></div></div><div class="tli rv"><span class="dot"></span><div><small>23 to 27 Nov</small><h4>Week 2</h4><p>Build the 10 campaigns from the template with assets and Business Profile links; end-to-end QA (test enquiry and test call per centre); launch</p></div></div></div></div></section>
+</main>
+<footer><div class="wrap"><b>Smartland Early Learning</b> · Website, Tracking &amp; Google Ads Audit · Prepared by Shamsher (Sham) · 13 November 2026</div></footer>
+<div id="toast" role="status"></div>
+<script>
+(function(){
+  var d=document, de=d.documentElement;
+  var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(!reduce) de.classList.add('js');
+  function fmt(v,dec){return v.toFixed(dec)}
+  function count(el){
+    var to=parseFloat(el.dataset.to),dec=parseInt(el.dataset.dec||'0',10);
+    if(reduce){el.textContent=fmt(to,dec);return}
+    var t0=null,dur=1400;
+    function step(t){if(!t0)t0=t;var p=Math.min((t-t0)/dur,1),e=1-Math.pow(1-p,3);el.textContent=fmt(to*e,dec);if(p<1)requestAnimationFrame(step)}
+    el.textContent=fmt(0,dec);requestAnimationFrame(step);
+  }
+  var seen=new WeakSet();
+  var io=('IntersectionObserver' in window)?new IntersectionObserver(function(es){
+    es.forEach(function(e){
+      if(!e.isIntersecting)return;
+      var el=e.target;el.classList.add('in');
+      el.querySelectorAll('.cnt').forEach(function(c){if(!seen.has(c)){seen.add(c);count(c)}});
+      if(el.classList.contains('cnt')&&!seen.has(el)){seen.add(el);count(el)}
+      io.unobserve(el);
+    });
+  },{threshold:.15}):null;
+  d.querySelectorAll('.rv,.hero .kpi,.copybox').forEach(function(el){io?io.observe(el):el.classList.add('in')});
+  // reveal counters inside hero kpis that are not .rv
+  d.querySelectorAll('.hero .kpi').forEach(function(k){
+    if(!io)return;
+  });
+  // progress bar + active nav
+  var prog=d.getElementById('prog');
+  var links=[].slice.call(d.querySelectorAll('nav.top a'));
+  var secs=links.map(function(a){return d.querySelector(a.getAttribute('href'))});
+  function onScroll(){
+    var h=de.scrollHeight-innerHeight;prog.style.width=(h>0?(scrollY/h*100):0)+'%';
+    var cur=0;secs.forEach(function(s,i){if(s&&s.getBoundingClientRect().top<140)cur=i});
+    links.forEach(function(a,i){a.classList.toggle('on',i===cur&&scrollY>200)});
+    var on=links[cur];if(on&&scrollY>200&&on.scrollIntoView){var p=on.parentNode;p.scrollLeft=on.offsetLeft-60}
+  }
+  addEventListener('scroll',onScroll,{passive:true});onScroll();
+  // tabs
+  d.querySelectorAll('.tab').forEach(function(b){b.addEventListener('click',function(){
+    d.querySelectorAll('.tab').forEach(function(x){x.classList.remove('on')});
+    d.querySelectorAll('.pane').forEach(function(x){x.classList.remove('on')});
+    b.classList.add('on');d.getElementById(b.dataset.t).classList.add('on');
+  })});
+  // copy
+  var toast=d.getElementById('toast'),tt;
+  function say(m){toast.textContent=m;toast.classList.add('show');clearTimeout(tt);tt=setTimeout(function(){toast.classList.remove('show')},1600)}
+  d.querySelectorAll('.hl').forEach(function(b){b.addEventListener('click',function(){
+    var txt=b.dataset.copy.replace(/\u2019/g,"'");
+    function done(){b.classList.add('copied');setTimeout(function(){b.classList.remove('copied')},900);say('Copied: '+txt)}
+    try{navigator.clipboard.writeText(txt).then(done,function(){say(txt)})}catch(e){say(txt)}
+  })});
+  // theme toggle (in-memory only)
+  var tb=d.getElementById('theme');
+  tb.addEventListener('click',function(){
+    var dark=de.getAttribute('data-theme')==='dark'||(!de.getAttribute('data-theme')&&matchMedia('(prefers-color-scheme: dark)').matches);
+    de.setAttribute('data-theme',dark?'light':'dark');
+  });
+  // hero counters fire on load
+  d.querySelectorAll('.hero .cnt').forEach(function(c){seen.add(c);count(c)});
+})();
+</script>
+</body>
+</html>
